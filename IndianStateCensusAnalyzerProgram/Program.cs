@@ -10,7 +10,7 @@ namespace IndianStateCensusAnalyzerProgram
 
             string fileStateCodePath = @"F:\RPF Batch 256\IndianStateCensusAnalyzerProgram\IndianStateCensusAnalyzerProgram\files\StateCode.csv";
 
-            CsvCencus csvCensus = new CsvCencus();
+            CsvStateCencus csvCensus = new CsvStateCencus();
 
             csvCensus.ReadStateCensusData(filePath);
 

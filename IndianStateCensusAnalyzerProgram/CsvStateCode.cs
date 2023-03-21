@@ -22,6 +22,7 @@ namespace IndianStateCensusAnalyzerProgram
             {
                 throw new CustomException(ExceptionType.CSV_FILE_NOT_FOUND, "File Type is Incorrect");
             }
+
             using (var reader = new StreamReader(filePath))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {

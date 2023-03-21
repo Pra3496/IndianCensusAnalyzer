@@ -12,7 +12,8 @@ namespace IndianStateCensusAnalyzerProgram
         {
             FILE_NOT_FOUND,
             CSV_FILE_NOT_FOUND,
-            INCORRECT_DELIMETER
+            INCORRECT_DELIMETER,
+            INCORRECT_HEADER
         }
 
         public ExceptionType Type;

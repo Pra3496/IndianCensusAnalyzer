@@ -12,7 +12,7 @@ using static IndianStateCensusAnalyzerProgram.CustomException;
 
 namespace IndianStateCensusAnalyzerProgram
 {
-    public class CsvCencus
+    public class CsvStateCencus
     {
         public int ReadStateCensusData(string filePath)
         {
@@ -27,6 +27,8 @@ namespace IndianStateCensusAnalyzerProgram
 
             var csvfile = File.ReadAllLines(filePath);
             string header = csvfile[0];
+
+            
 
             if (header.Contains("/"))
             {
@@ -52,6 +54,20 @@ namespace IndianStateCensusAnalyzerProgram
                     
                 }
             }
+
+
+
+        }
+        public bool ReadStateCensusData(string filePath, string actualHeader)
+        {
+            var csvfile = File.ReadAllLines(filePath);
+            string header = csvfile[0];
+
+            if (!header.Equals(actualHeader))
+                return true;
+            else
+                throw new CustomException(ExceptionType.INCORRECT_HEADER, "Incorrect Header");
+
         }
     }
 }
