@@ -11,7 +11,8 @@ namespace IndianStateCensusAnalyzerProgram
         public enum ExceptionType
         {
             FILE_NOT_FOUND,
-            CSV_FILE_NOT_FOUND
+            CSV_FILE_NOT_FOUND,
+            INCORRECT_DELIMETER
         }
 
         public ExceptionType Type;

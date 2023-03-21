@@ -10,6 +10,8 @@ namespace indianStateCensesAnalyzerTest
 
         public static string fileTypeError = @"F:\RPF Batch 256\IndianStateCensusAnalyzerProgram\IndianStateCensusAnalyzerProgram\files\StateCensusData.txt";
 
+        public static string FileDelimiterIncorrect = @"F:\RPF Batch 256\IndianStateCensusAnalyzerProgram\IndianStateCensusAnalyzerProgram\files\StateCensusDataDlim.csv";
+
         CsvCencus csvCensus = new CsvCencus();
 
         StateCensesAnalyzer stateCensesAnalyzer = new StateCensesAnalyzer();
@@ -44,6 +46,19 @@ namespace indianStateCensesAnalyzerTest
             catch (CustomException ex)
             {
                 Assert.AreEqual(ex.Message, "File Type is Incorrect");
+            }
+        }
+
+        [Test]
+        public void GivenIncorrectDelimeter_ShouldReturnCustomeException()
+        {
+            try
+            {
+                csvCensus.ReadStateCensusData(FileDelimiterIncorrect);
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual("Incorrect Delimiter", ex.Message);
             }
         }
     }

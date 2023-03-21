@@ -25,6 +25,14 @@ namespace IndianStateCensusAnalyzerProgram
                 throw new CustomException(ExceptionType.CSV_FILE_NOT_FOUND,"File Type is Incorrect");
             }
 
+            var csvfile = File.ReadAllLines(filePath);
+            string header = csvfile[0];
+
+            if (header.Contains("/"))
+            {
+                throw new CustomException(ExceptionType.INCORRECT_DELIMETER, "Incorrect Delimiter");
+            }
+
 
 
             using (var reader = new StreamReader(filePath))
