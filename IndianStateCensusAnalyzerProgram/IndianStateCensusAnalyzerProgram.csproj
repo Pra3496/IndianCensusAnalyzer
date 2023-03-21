@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="30.0.1" />
-    <PackageReference Include="opencsv.dll" Version="1.2.0" />
   </ItemGroup>
 
 </Project>
