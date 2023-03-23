@@ -26,6 +26,7 @@ namespace indianStateCensesAnalyzerTest
             Assert.AreEqual(29, stateCensesAnalyzer.ReadStateCensusData(filePath));
         }
 
+        [Test]
         public void GivenStateCensusIncorrectCSVfile()
         {
             try
@@ -38,7 +39,23 @@ namespace indianStateCensesAnalyzerTest
             }
         }
 
-      
+       
+
+        [Test]
+        public void GivenStateCensusIncorrectFileTypeIncorrect()
+        {
+            try
+            {
+                int record = stateCensesAnalyzer.ReadStateCensusData(fileTypeError);
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual(ex.Message, "File Type is Incorrect");
+            }
+        }
+
+       
+
 
     }
 }
