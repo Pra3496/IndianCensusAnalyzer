@@ -67,7 +67,21 @@ namespace indianStateCensesAnalyzerTest
             }
         }
 
-        
+        [Test]
+        public void GivenIncorrectHeader_ShouldReturnCustomeException()
+        {
+            try
+            {
+                string Header = "State,Population,AreaInSqKm,DensityPerSqKm";
+
+                stateCensesAnalyzer.ReadStateCensusData(FileHeaderIncorrect, Header);
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual("Incorrect Header", ex.Message);
+            }
+        }
+
 
 
 
