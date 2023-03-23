@@ -54,7 +54,22 @@ namespace indianStateCensesAnalyzerTest
             }
         }
 
-       
+        [Test]
+        public void GivenIncorrectDelimeter_ShouldReturnCustomeException()
+        {
+            try
+            {
+                stateCensesAnalyzer.ReadStateCensusData(FileDelimiterIncorrect);
+            }
+            catch (CustomException ex)
+            {
+                Assert.AreEqual("Incorrect Delimiter", ex.Message);
+            }
+        }
+
+        
+
+
 
 
     }
