@@ -15,7 +15,7 @@ namespace indianStateCensesAnalyzerTest
         public static string FileHeaderIncorrect = @"F:\RPF Batch 256\IndianStateCensusAnalyzerProgram\IndianStateCensusAnalyzerProgram\files\StateCensusDataDlim.csv";
 
         
-        CsvStateCencus csvCensus = new CsvStateCencus();
+        
 
         StateCensesAnalyzer stateCensesAnalyzer = new StateCensesAnalyzer();
 
@@ -23,7 +23,7 @@ namespace indianStateCensesAnalyzerTest
         [Test]
         public void Test1()
         {
-            Assert.AreEqual(csvCensus.ReadStateCensusData(filePath), stateCensesAnalyzer.ReadStateCensusData(filePath));
+            Assert.AreEqual(29, stateCensesAnalyzer.ReadStateCensusData(filePath));
         }
 
         [Test]
@@ -57,7 +57,7 @@ namespace indianStateCensesAnalyzerTest
         {
             try
             {
-                csvCensus.ReadStateCensusData(FileDelimiterIncorrect);
+                stateCensesAnalyzer.ReadStateCensusData(FileDelimiterIncorrect);
             }
             catch (CustomException ex)
             {
@@ -72,7 +72,7 @@ namespace indianStateCensesAnalyzerTest
             {
                 string Header = "State,Population,AreaInSqKm,DensityPerSqKm";
 
-                csvCensus.ReadStateCensusData(FileHeaderIncorrect, Header);
+                stateCensesAnalyzer.ReadStateCensusData(FileHeaderIncorrect, Header);
             }
             catch (CustomException ex)
             {
