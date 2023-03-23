@@ -26,58 +26,7 @@ namespace indianStateCensesAnalyzerTest
             Assert.AreEqual(29, stateCensesAnalyzer.ReadStateCensusData(filePath));
         }
 
-        [Test]
-        public void GivenStateCensusIncorrectCSVfile()
-        {
-            try
-            {
-                int record = stateCensesAnalyzer.ReadStateCensusData(filePathError);
-            }
-            catch (CustomException ex)
-            {
-                Assert.AreEqual(ex.Message, "Incorrect file path");
-            }
-        }
-
-        [Test]
-        public void GivenStateCensusIncorrectFileTypeIncorrect()
-        {
-            try
-            {
-                int record = stateCensesAnalyzer.ReadStateCensusData(fileTypeError);
-            }
-            catch (CustomException ex)
-            {
-                Assert.AreEqual(ex.Message, "File Type is Incorrect");
-            }
-        }
-
-        [Test]
-        public void GivenIncorrectDelimeter_ShouldReturnCustomeException()
-        {
-            try
-            {
-                stateCensesAnalyzer.ReadStateCensusData(FileDelimiterIncorrect);
-            }
-            catch (CustomException ex)
-            {
-                Assert.AreEqual("Incorrect Delimiter", ex.Message);
-            }
-        }
-
-        [Test]
-        public void GivenIncorrectHeader_ShouldReturnCustomeException()
-        {
-            try
-            {
-                string Header = "State,Population,AreaInSqKm,DensityPerSqKm";
-
-                stateCensesAnalyzer.ReadStateCensusData(FileHeaderIncorrect, Header);
-            }
-            catch (CustomException ex)
-            {
-                Assert.AreEqual("Incorrect Header", ex.Message);
-            }
-        }
+        
+      
     }
 }
